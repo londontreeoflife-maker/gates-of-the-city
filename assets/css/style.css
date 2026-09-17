@@ -1,0 +1,220 @@
+/* Tree of Life Family — Gates of the City site
+   Palette sampled from the official Gates of the City logo. */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+@font-face{
+  font-family:'Fertigo Pro';
+  src: url('../fonts/FertigoPro.otf') format('opentype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root{
+  --brown:      #7D4C21; /* headings, nav, wordmark */
+  --brown-dark: #5E3A19; /* hover state */
+  --rust:       #BA4621; /* secondary accent — Keys to the City */
+  --orange:     #DE7301; /* primary accent — Gates of the City, buttons */
+  --gold:       #D5B41B; /* tertiary accent — dividers, highlights */
+  --cream:      #FDFBF6; /* page background */
+  --cream-2:    #F6EEDD; /* card / alt-section background */
+  --line:       #E7D9BE; /* hairlines on cream */
+  --ink:        #3A2A18; /* body text */
+  --ink-soft:   #7A6A55; /* muted / secondary text */
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+h1,h2,h3{
+  font-family:'Fertigo Pro','Libre Franklin', Georgia, serif;
+  color:var(--brown);
+  text-wrap:balance;
+  margin:0;
+  font-weight:600;
+}
+p{ margin:0; }
+
+.eyebrow{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:0.72rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--rust);
+}
+
+.tagline{
+  font-family:'Libre Franklin', serif;
+  font-style:italic;
+  font-weight:500;
+  color:var(--orange);
+}
+
+.wrap{ max-width:1120px; margin:0 auto; padding-inline:24px; }
+@media (min-width:640px){ .wrap{ padding-inline:40px; } }
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky; top:0; z-index:40;
+  background:rgba(253,251,246,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; padding-block:12px; flex-wrap:wrap;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--brown);
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+  font-weight:600; white-space:nowrap;
+}
+.brand img{ height:34px; width:auto; flex-shrink:0; }
+.nav-links{ display:flex; gap:22px; flex-wrap:wrap; row-gap:8px; }
+.nav-links a{
+  text-decoration:none; font-size:0.86rem; font-weight:600;
+  color:var(--brown); opacity:0.82; padding-block:4px;
+  border-bottom:1px solid transparent;
+  transition:opacity .15s, border-color .15s;
+}
+.nav-links a:hover{ opacity:1; border-color:var(--orange); }
+.nav-links a.current{ opacity:1; border-color:var(--gold); }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase;
+  font-weight:600; text-decoration:none;
+  padding:13px 22px; border-radius:3px; border:1px solid transparent;
+  transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+}
+.btn:hover{ transform:translateY(-1px); }
+.btn-orange{ background:var(--orange); color:#fff; }
+.btn-orange:hover{ background:var(--brown-dark); }
+.btn-rust{ background:var(--rust); color:#fff; }
+.btn-rust:hover{ background:var(--brown-dark); }
+.btn-ghost{ border-color:var(--brown); color:var(--brown); }
+.btn-ghost:hover{ border-color:var(--orange); color:var(--orange); }
+
+/* ---------- hero ---------- */
+.hero{ padding-block:56px 72px; position:relative; }
+.hero-logo{ max-width:380px; width:60%; margin-bottom:8px; }
+.hero-mark{ max-width:180px; width:36%; margin-bottom:4px; }
+.hero .eyebrow{ margin-bottom:14px; display:block; }
+.hero h1{ font-size:clamp(2.2rem, 6vw, 3.6rem); line-height:1.02; margin-bottom:6px; }
+.hero-tagline{ font-size:1.15rem; margin-bottom:22px; display:block; }
+.hero-sub{
+  font-size:1.03rem; line-height:1.65; color:var(--ink-soft);
+  max-width:56ch; margin-bottom:30px;
+}
+.hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* ---------- sections ---------- */
+section{ padding-block:64px; }
+.section-alt{ background:var(--cream-2); }
+.divider{
+  height:2px; border:none;
+  background:linear-gradient(90deg, transparent, var(--gold) 15%, var(--orange) 50%, var(--rust) 85%, transparent);
+  opacity:0.7; margin:0;
+}
+
+.kicker-row{
+  display:flex; align-items:baseline; justify-content:space-between;
+  gap:16px; flex-wrap:wrap; margin-bottom:24px;
+}
+.prog-title{ font-size:clamp(2rem, 4.4vw, 3rem); margin-bottom:18px; }
+.prog-lede{
+  font-size:1.05rem; line-height:1.65; color:var(--ink-soft);
+  max-width:62ch; margin-bottom:32px;
+}
+
+/* ---------- info bar ---------- */
+.info-bar{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  margin-bottom:32px;
+}
+.info-cell{ padding:16px 18px 16px 0; border-right:1px solid var(--line); }
+.info-cell:last-child{ border-right:none; }
+.info-cell .eyebrow{ display:block; margin-bottom:8px; }
+.info-cell strong{ font-size:0.98rem; font-weight:600; color:var(--ink); }
+
+/* ---------- cards ---------- */
+.card-grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line); margin-top:8px;
+}
+@media (max-width:720px){ .card-grid{ grid-template-columns:1fr; } }
+.card{
+  background:var(--cream); padding:30px 26px;
+  display:flex; flex-direction:column; gap:14px; min-height:220px;
+}
+.section-alt .card{ background:var(--cream-2); }
+.card-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.card-name{ font-family:'Fertigo Pro','Libre Franklin',serif; font-size:1.5rem; color:var(--brown); font-weight:600; }
+.tag{
+  font-family:'IBM Plex Mono', monospace; font-size:0.64rem; letter-spacing:0.08em;
+  text-transform:uppercase; font-weight:600; padding:5px 9px; border-radius:2px; white-space:nowrap;
+}
+.tag-free{ background:rgba(213,180,27,0.18); color:#8a6d0f; border:1px solid rgba(213,180,27,0.55); }
+.tag-paid{ background:rgba(186,70,33,0.14); color:var(--rust); border:1px solid rgba(186,70,33,0.4); }
+.card-desc{ font-size:0.96rem; line-height:1.6; color:var(--ink-soft); flex-grow:1; }
+.card-link{
+  font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em;
+  text-decoration:none; color:var(--orange); font-weight:600;
+  border-bottom:1px solid rgba(222,115,1,0.4); padding-bottom:2px; align-self:flex-start;
+}
+.card-link:hover{ border-color:var(--orange); }
+
+/* ---------- two-up program teaser ---------- */
+.teaser-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:8px; }
+@media (max-width:720px){ .teaser-grid{ grid-template-columns:1fr; } }
+.teaser{ background:var(--cream); padding:32px 28px; display:flex; flex-direction:column; gap:12px; }
+.teaser h3{ font-size:1.7rem; }
+.teaser p{ color:var(--ink-soft); font-size:0.98rem; line-height:1.6; }
+
+/* ---------- course list (track pages) ---------- */
+.course-list{ display:flex; flex-direction:column; border-top:1px solid var(--line); margin-top:8px; }
+.course-row{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:20px 4px; border-bottom:1px solid var(--line); flex-wrap:wrap;
+}
+.course-row-title{ font-family:'Fertigo Pro','Libre Franklin',serif; font-size:1.2rem; color:var(--brown); }
+.course-row-desc{ font-size:0.9rem; color:var(--ink-soft); max-width:48ch; }
+.course-row-link{
+  font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.05em;
+  text-decoration:none; color:var(--orange); font-weight:600; white-space:nowrap;
+  border-bottom:1px solid rgba(222,115,1,0.4);
+}
+.placeholder-note{
+  font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:var(--ink-soft);
+  background:var(--cream-2); border:1px dashed var(--line); padding:14px 16px; margin-top:20px;
+}
+
+/* ---------- footer ---------- */
+footer{ background:var(--cream-2); border-top:1px solid var(--line); padding-block:44px; }
+.foot-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+.foot-brand{ font-family:'Fertigo Pro','Libre Franklin',serif; font-size:1.3rem; color:var(--brown); }
+.foot-meta{ font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--ink-soft); line-height:1.8; }
+.foot-meta a{ color:var(--orange); text-decoration:none; }
+.foot-meta a:hover{ text-decoration:underline; }
+
+.breadcrumb{
+  font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.04em;
+  color:var(--ink-soft); text-decoration:none; display:inline-block; margin-bottom:20px;
+}
+.breadcrumb:hover{ color:var(--orange); }
