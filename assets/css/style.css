@@ -205,6 +205,60 @@ section{ padding-block:64px; }
   background:var(--cream-2); border:1px dashed var(--line); padding:14px 16px; margin-top:20px;
 }
 
+/* ---------- course cards (image + click-through) ---------- */
+.course-cards{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:28px; margin-top:8px;
+}
+.course-card{
+  background:var(--cream-2); border:1px solid var(--line);
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.course-card-img-link{ display:block; line-height:0; }
+.course-card-img-link img{
+  width:100%; aspect-ratio:16/9; object-fit:cover;
+  transition:transform .2s ease;
+}
+.course-card-img-link:hover img{ transform:scale(1.03); }
+.course-card-body{
+  padding:20px 22px 24px; display:flex; flex-direction:column; gap:10px; flex-grow:1;
+}
+.course-card-title{ font-family:'Fertigo Pro','Libre Franklin',serif; font-size:1.25rem; color:var(--brown); }
+.course-card-desc{ font-size:0.92rem; line-height:1.58; color:var(--ink-soft); flex-grow:1; }
+.course-card-link{
+  font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.05em;
+  text-decoration:none; color:var(--orange); font-weight:600; align-self:flex-start;
+  border-bottom:1px solid rgba(222,115,1,0.4);
+}
+.course-card-link:hover{ border-color:var(--orange); }
+
+/* placeholder card — course not yet built in Kajabi */
+.course-card-placeholder-img{
+  width:100%; aspect-ratio:16/9;
+  background:linear-gradient(135deg, var(--brown) 0%, var(--rust) 50%, var(--orange) 100%);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.course-card-placeholder-img span{
+  font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.14em;
+  text-transform:uppercase; font-weight:600; color:#fff;
+  background:rgba(0,0,0,0.28); padding:8px 14px; border-radius:2px;
+}
+.course-card.is-placeholder .course-card-title{ color:var(--ink-soft); }
+.course-card-soon{
+  font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.05em;
+  color:var(--ink-soft); align-self:flex-start;
+}
+
+/* coming-soon full-width panel (Ongoing page) */
+.coming-soon-panel{
+  border:1px dashed var(--line); background:var(--cream-2);
+  padding:56px 32px; text-align:center; margin-top:8px;
+}
+.coming-soon-panel .eyebrow{ display:block; margin-bottom:10px; }
+.coming-soon-panel h2{ font-size:clamp(1.6rem, 4vw, 2.2rem); margin-bottom:10px; }
+.coming-soon-panel p{ color:var(--ink-soft); font-size:0.98rem; max-width:48ch; margin:0 auto; }
+
 /* ---------- footer ---------- */
 footer{ background:var(--cream-2); border-top:1px solid var(--line); padding-block:44px; }
 .foot-row{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
